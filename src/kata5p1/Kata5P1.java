@@ -16,17 +16,9 @@ public class Kata5P1 {
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         Class.forName("org.sqlite.JDBC");
         Connection con = DriverManager.getConnection("jdbc:sqlite:Kata5.db");
-        
+
         Statement st = con.createStatement();
-        String query = "SELECT * FROM PEOPLE";
-        ResultSet rs = st.executeQuery(query);
+        ResultSet executeQuery =st.executeQuery("create table a ('Id' integer primary key autoincrement, 'Mail' text not null);");
         
-        while(rs.next()){
-            System.out.println(rs.getInt("ID") + "\t" +
-                               rs.getString("Name") + "\t" +
-                               rs.getString("Apellidos") + "\t" +
-                               rs.getString("Departamento") + "\t");
-        }
-    }
-    
+    }       
 }
